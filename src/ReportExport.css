@@ -1,0 +1,85 @@
+.report-export {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(125, 222, 159, 0.055),
+      rgba(255, 255, 255, 0.018)
+    );
+  border: 1px solid rgba(125, 222, 159, 0.12);
+}
+
+.report-export-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: #7dde9f;
+  background: rgba(125, 222, 159, 0.08);
+  border: 1px solid rgba(125, 222, 159, 0.12);
+}
+
+.report-export-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.report-export-content h3 {
+  margin: 5px 0 5px;
+  font-size: 16px;
+}
+
+.report-export-content p:last-child {
+  margin: 0;
+  color: #77847d;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.report-export-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 15px;
+  border: 1px solid rgba(125, 222, 159, 0.18);
+  border-radius: 10px;
+  background: rgba(125, 222, 159, 0.09);
+  color: #8be0aa;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.report-export-button:hover {
+  background: rgba(125, 222, 159, 0.15);
+  border-color: rgba(125, 222, 159, 0.3);
+  transform: translateY(-1px);
+}
+
+.report-export-button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 650px) {
+  .report-export {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .report-export-button {
+    width: 100%;
+  }
+}

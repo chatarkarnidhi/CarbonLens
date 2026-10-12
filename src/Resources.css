@@ -1,0 +1,478 @@
+.resources-page {
+  min-height: 100vh;
+  max-width: 1500px;
+  margin: auto;
+  padding: 34px 42px 55px;
+}
+
+.resources-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.resources-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+  margin-bottom: 25px;
+}
+
+.resources-heading-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  color: #8ce5ad;
+  background: rgba(83, 195, 130, 0.1);
+  border: 1px solid rgba(120, 220, 157, 0.14);
+  border-radius: 13px;
+}
+
+.resources-heading h2 {
+  margin: 5px 0 7px;
+  font-size: 28px;
+  letter-spacing: -0.04em;
+}
+
+.resources-heading p:last-child {
+  margin: 0;
+  color: #71877c;
+  font-size: 12px;
+}
+
+.resource-recommendation {
+  display: flex;
+  gap: 17px;
+  padding: 23px;
+  border-radius: 17px;
+  border: 1px solid rgba(105, 218, 148, 0.22);
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(77, 190, 122, 0.13),
+      transparent 38%
+    ),
+    rgba(18, 43, 31, 0.75);
+  margin-bottom: 16px;
+}
+
+.recommendation-symbol {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  color: #86e2a9;
+  border-radius: 11px;
+  background: rgba(84, 197, 132, 0.1);
+}
+
+.resource-recommendation-content h3 {
+  margin: 6px 0;
+  font-size: 21px;
+}
+
+.resource-recommendation-content > p:not(.eyebrow) {
+  color: #71877c;
+  font-size: 10px;
+  margin: 0;
+}
+
+.recommendation-mini-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 17px;
+}
+
+.recommendation-mini-stats div {
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.recommendation-mini-stats span,
+.recommendation-mini-stats strong {
+  display: block;
+}
+
+.recommendation-mini-stats span {
+  color: #62776d;
+  font-size: 8px;
+}
+
+.recommendation-mini-stats strong {
+  margin-top: 5px;
+  color: #a9bbb3;
+  font-size: 12px;
+}
+
+.recommendation-mini-stats strong:first-letter {
+  color: #8de5ad;
+}
+
+.recommendation-mini-stats small {
+  color: #647970;
+  font-size: 8px;
+  font-weight: 400;
+}
+
+.priority-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 21px;
+  margin-bottom: 21px;
+  border-radius: 14px;
+  border: 1px solid rgba(119, 162, 141, 0.1);
+  background: rgba(14, 29, 22, 0.65);
+}
+
+.priority-panel h3 {
+  margin: 5px 0 0;
+  font-size: 14px;
+}
+
+.priority-buttons {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.priority-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(120, 163, 142, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+  color: #71877c;
+  cursor: pointer;
+  font-size: 9px;
+}
+
+.priority-button:hover {
+  color: #a7c7b7;
+}
+
+.priority-active {
+  color: #82dfa5;
+  border-color: rgba(103, 216, 145, 0.3);
+  background: rgba(76, 185, 119, 0.08);
+}
+
+.region-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 13px;
+}
+
+.region-section-header h3 {
+  margin: 6px 0 0;
+  font-size: 17px;
+}
+
+.comparison-badge {
+  color: #6f9581;
+  border: 1px solid rgba(111, 157, 132, 0.13);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 9px;
+}
+
+.region-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 11px;
+}
+
+.region-card {
+  position: relative;
+  padding: 18px;
+  border-radius: 15px;
+  border: 1px solid rgba(120, 163, 142, 0.1);
+  background: rgba(14, 28, 22, 0.7);
+}
+
+.region-recommended {
+  border-color: rgba(104, 218, 148, 0.35);
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(76, 193, 124, 0.1),
+      transparent 40%
+    ),
+    rgba(19, 42, 30, 0.78);
+}
+
+.region-recommended-tag {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  color: #7be0a0;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.region-card-top {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.region-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  color: #78d99d;
+  background: rgba(83, 194, 130, 0.09);
+  border-radius: 10px;
+}
+
+.region-rank {
+  color: #587267;
+  font-size: 7px;
+  letter-spacing: 0.1em;
+}
+
+.region-card h4 {
+  margin: 3px 0 2px;
+  font-size: 13px;
+}
+
+.region-card-top p {
+  margin: 0;
+  color: #647a6f;
+  font-size: 8px;
+}
+
+.region-carbon {
+  padding: 13px 0;
+  border-top: 1px solid rgba(120, 163, 142, 0.07);
+  border-bottom: 1px solid rgba(120, 163, 142, 0.07);
+  margin-bottom: 8px;
+}
+
+.region-carbon span {
+  display: block;
+  color: #62776d;
+  font-size: 8px;
+}
+
+.region-carbon strong {
+  display: block;
+  margin-top: 4px;
+  color: #a5bbb0;
+  font-size: 22px;
+}
+
+.region-carbon small {
+  color: #60766b;
+  font-size: 7px;
+  font-weight: 400;
+  margin-left: 3px;
+}
+
+.region-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(120, 163, 142, 0.05);
+}
+
+.region-metric-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #62786d;
+  font-size: 8px;
+}
+
+.region-metric-label svg {
+  color: #6ed296;
+}
+
+.region-metric strong {
+  color: #9aafa6;
+  font-size: 9px;
+}
+
+.region-score {
+  margin-top: 13px;
+}
+
+.region-score > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.region-score span {
+  color: #60766c;
+  font-size: 8px;
+}
+
+.region-score strong {
+  color: #7dde9f;
+  font-size: 13px;
+}
+
+.score-track {
+  height: 4px;
+  margin-top: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.score-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: #62cb8c;
+}
+
+.methodology-panel {
+  display: flex;
+  gap: 15px;
+  margin-top: 16px;
+  padding: 20px;
+  border-left: 2px solid #4ca974;
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.methodology-icon {
+  width: 39px;
+  height: 39px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  color: #7cdda1;
+  border-radius: 9px;
+  background: rgba(84, 197, 132, 0.08);
+}
+
+.methodology-panel h3 {
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+.methodology-panel p:last-child {
+  max-width: 850px;
+  color: #687d73;
+  font-size: 9px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .region-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .priority-panel {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 700px) {
+  .resources-page {
+    padding: 20px 15px 30px;
+  }
+
+  .recommendation-mini-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .region-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.region-apply-button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  border-radius: 8px;
+  border: 1px solid rgba(103, 216, 145, 0.2);
+  background: rgba(76, 185, 119, 0.07);
+  color: #7cdda1;
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.region-apply-button:hover {
+  background: rgba(76, 185, 119, 0.14);
+  border-color: rgba(103, 216, 145, 0.4);
+}
+/* =========================================================
+   CARBONLENS - CLICKABLE REGION CONTROLS
+   ========================================================= */
+
+.region-card {
+  position: relative;
+  z-index: 1;
+}
+
+.region-card button {
+  position: relative;
+  z-index: 50;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+.region-apply-button {
+  position: relative;
+  z-index: 100;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  user-select: none;
+}
+
+.region-apply-button:hover {
+  transform: translateY(-1px);
+}
+
+.region-apply-button:active {
+  transform: translateY(0);
+}
+
+.priority-button {
+  position: relative;
+  z-index: 50;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+.primary-button {
+  position: relative;
+  z-index: 100;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+.region-card::before,
+.region-card::after {
+  pointer-events: none !important;
+}
+
+.resource-recommendation::before,
+.resource-recommendation::after {
+  pointer-events: none !important;
+}
