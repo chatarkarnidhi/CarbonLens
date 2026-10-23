@@ -1,0 +1,9 @@
+{
+  "name": "carbonlens-cloudwatch-lambda",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@aws-sdk/client-cloudwatch": "^3.1155.0"
+  }
+}

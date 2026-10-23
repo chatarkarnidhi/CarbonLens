@@ -1,0 +1,569 @@
+/* Live AWS Infrastructure Section Styling */
+
+.live-aws-section {
+  background:
+    radial-gradient(circle at 90% 10%, rgba(70, 183, 117, 0.08), transparent 40%),
+    linear-gradient(180deg, rgba(14, 30, 24, 0.8), rgba(9, 20, 16, 0.95));
+  border: 1px solid rgba(122, 181, 148, 0.18);
+  border-radius: 18px;
+  padding: 24px 28px;
+  margin-bottom: 28px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.live-aws-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(145, 181, 162, 0.1);
+}
+
+.live-aws-title-area {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.live-aws-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(85, 194, 132, 0.12);
+  border: 1px solid rgba(117, 219, 155, 0.22);
+  color: #7dde9f;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 15px rgba(102, 219, 146, 0.12);
+}
+
+.live-aws-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.live-aws-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #6d8b7d;
+}
+
+.live-aws-source-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #ff9900;
+  background: rgba(255, 153, 0, 0.1);
+  border: 1px solid rgba(255, 153, 0, 0.25);
+  border-radius: 6px;
+  padding: 2px 7px;
+}
+
+.live-aws-heading {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.02em;
+  color: #e9f2ed;
+}
+
+.live-aws-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.live-aws-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(145, 181, 162, 0.15);
+  transition: all 0.25s ease;
+}
+
+.live-aws-status-pill.status-connected {
+  color: #8ce3b3;
+  border-color: rgba(102, 219, 146, 0.25);
+  background: rgba(102, 219, 146, 0.08);
+}
+
+.live-aws-status-pill.status-loading {
+  color: #8da498;
+}
+
+.live-aws-status-pill.status-stale {
+  color: #f1c40f;
+  border-color: rgba(241, 196, 15, 0.28);
+  background: rgba(241, 196, 15, 0.08);
+}
+
+.live-aws-status-pill.status-error {
+  color: #ff7b72;
+  border-color: rgba(255, 123, 114, 0.3);
+  background: rgba(255, 123, 114, 0.08);
+}
+
+.live-aws-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 10px currentColor;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+.live-aws-refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(85, 194, 132, 0.1);
+  border: 1px solid rgba(117, 219, 155, 0.2);
+  color: #a3efbf;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.live-aws-refresh-btn:hover:not(:disabled) {
+  background: rgba(85, 194, 132, 0.2);
+  border-color: rgba(117, 219, 155, 0.4);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.live-aws-refresh-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spin-animation {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error Banner */
+.live-aws-error-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(255, 85, 85, 0.08);
+  border: 1px solid rgba(255, 85, 85, 0.22);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+
+.live-aws-error-icon {
+  color: #ff7b72;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.live-aws-error-content {
+  flex: 1;
+}
+
+.live-aws-error-content h4 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  color: #ff9b94;
+}
+
+.live-aws-error-msg {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: #d1b4b1;
+}
+
+.live-aws-error-tip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #8d9fa0;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.live-aws-retry-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: center;
+  background: rgba(255, 85, 85, 0.15);
+  border: 1px solid rgba(255, 85, 85, 0.3);
+  color: #ffb8b2;
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.live-aws-retry-btn:hover {
+  background: rgba(255, 85, 85, 0.25);
+  color: #ffffff;
+}
+
+/* Stale Banner */
+.live-aws-stale-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(241, 196, 15, 0.08);
+  border: 1px solid rgba(241, 196, 15, 0.25);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 12px;
+  color: #e5c76b;
+  margin-bottom: 20px;
+}
+
+/* Metric Cards Grid */
+.live-aws-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+  .live-aws-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .live-aws-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.live-aws-metric-card {
+  background: rgba(10, 24, 19, 0.65);
+  border: 1px solid rgba(122, 181, 148, 0.14);
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.live-aws-metric-card:hover {
+  border-color: rgba(122, 181, 148, 0.26);
+  transform: translateY(-1px);
+}
+
+.live-aws-metric-card.highlight {
+  border-color: rgba(102, 219, 146, 0.35);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(102, 219, 146, 0.08), transparent 50%),
+    rgba(12, 28, 22, 0.85);
+}
+
+.live-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.live-card-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #6f8279;
+}
+
+.live-card-badge {
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: rgba(102, 219, 146, 0.12);
+  color: #8ce3b3;
+  border: 1px solid rgba(102, 219, 146, 0.2);
+}
+
+.live-card-badge.region-badge {
+  background: rgba(52, 152, 219, 0.12);
+  color: #70b3e6;
+  border-color: rgba(52, 152, 219, 0.25);
+}
+
+.live-metric-icon {
+  color: #7dde9f;
+}
+
+.live-instance-name,
+.live-region-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #e9f2ed;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.live-cpu-value,
+.live-resolution-val {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.live-cpu-value strong,
+.live-resolution-val strong {
+  font-size: 26px;
+  font-weight: 700;
+  color: #7dde9f;
+  letter-spacing: -0.02em;
+}
+
+.live-cpu-value .live-unit,
+.live-resolution-val .live-unit {
+  font-size: 13px;
+  color: #8fa59b;
+  font-weight: 500;
+}
+
+.live-instance-sub {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #798e84;
+  margin-top: auto;
+}
+
+.live-instance-sub code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 1px 5px;
+  border-radius: 4px;
+  color: #a8beb2;
+}
+
+.live-dot-sep {
+  opacity: 0.5;
+}
+
+/* Chart Container */
+.live-aws-chart-container {
+  background: rgba(8, 19, 15, 0.7);
+  border: 1px solid rgba(122, 181, 148, 0.12);
+  border-radius: 14px;
+  padding: 20px 22px 14px;
+}
+
+.live-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.live-chart-title {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e9f2ed;
+}
+
+.live-chart-desc {
+  margin: 0;
+  font-size: 11px;
+  color: #687b72;
+}
+
+.live-chart-desc code {
+  color: #8ce3b3;
+  font-family: ui-monospace, monospace;
+}
+
+.live-chart-legend {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  color: #89a093;
+}
+
+.legend-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: #66db92;
+}
+
+.live-chart-render-wrapper {
+  margin-left: -10px;
+  margin-right: 5px;
+}
+
+/* Custom Tooltip */
+.aws-chart-tooltip {
+  background: rgba(7, 16, 13, 0.95);
+  border: 1px solid rgba(102, 219, 146, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 12px;
+}
+
+.aws-tooltip-time {
+  margin: 0 0 6px;
+  color: #798e84;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.aws-tooltip-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #e9f2ed;
+}
+
+.aws-tooltip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #66db92;
+}
+
+.aws-tooltip-sub {
+  margin-top: 4px;
+  font-size: 10px;
+  color: #6d8b7d;
+}
+
+/* No Data State */
+.live-aws-no-data-state {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 36px 24px;
+  text-align: left;
+  color: #859c90;
+  background: rgba(255, 255, 255, 0.015);
+  border-radius: 10px;
+  border: 1px dashed rgba(145, 181, 162, 0.15);
+  margin: 10px 0 16px;
+}
+
+.no-data-text h5 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  color: #d1ded7;
+}
+
+.no-data-text p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #798e84;
+}
+
+/* Footer Audit Bar */
+.live-aws-footer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(145, 181, 162, 0.08);
+  font-size: 11px;
+  color: #64796f;
+}
+
+.live-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.live-footer-left code {
+  color: #8ce3b3;
+  font-family: monospace;
+}
+
+.live-check-icon {
+  color: #66db92;
+}
+
+.live-footer-right strong {
+  color: #b7cbbf;
+}
+
+/* Skeleton Loading */
+.live-aws-skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.live-aws-skeleton-card {
+  height: 90px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  animation: skeletonPulse 1.5s infinite ease-in-out;
+}
+
+.live-aws-skeleton-card.wide {
+  grid-column: span 2;
+  height: 200px;
+}
+
+@keyframes skeletonPulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}

@@ -1,0 +1,83 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: CarbonLens Real AWS EC2 + CloudWatch Metrics Backend Service
+
+Parameters:
+  TargetInstanceId:
+    Type: String
+    Default: i-03ab13867b4511011
+    Description: EC2 Instance ID to query CloudWatch metrics for
+  TargetRegion:
+    Type: String
+    Default: eu-north-1
+    Description: AWS region where the EC2 instance resides
+  FrontendOrigin:
+    Type: String
+    Default: '*'
+    Description: Allowed frontend origin for CORS (e.g., https://main.d123456.amplifyapp.com)
+
+Resources:
+  # Least-Privilege IAM Execution Role for CloudWatch Read-Only
+  CarbonLensLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: CarbonLensCloudWatchReaderRole
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: CloudWatchMetricsReadLeastPrivilege
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - cloudwatch:GetMetricStatistics
+                Resource: '*'
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/*:log-stream:*'
+
+  # Serverless Backend Lambda Function
+  CarbonLensMetricsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: CarbonLens-EC2-CloudWatch-Metrics
+      CodeUri: ../
+      Handler: lambda.handler
+      Runtime: nodejs20.x
+      Timeout: 15
+      MemorySize: 256
+      Role: !GetAtt CarbonLensLambdaRole.Arn
+      Environment:
+        Variables:
+          EC2_INSTANCE_ID: !Ref TargetInstanceId
+          AWS_REGION: !Ref TargetRegion
+          ALLOWED_ORIGIN: !Ref FrontendOrigin
+      FunctionUrlConfig:
+        AuthType: NONE
+        Cors:
+          AllowOrigins:
+            - !Ref FrontendOrigin
+          AllowMethods:
+            - GET
+            - OPTIONS
+          AllowHeaders:
+            - Content-Type
+            - Authorization
+          MaxAge: 86400
+
+Outputs:
+  MetricsFunctionUrl:
+    Description: Public HTTPS URL for CarbonLens CloudWatch metrics
+    Value: !GetAtt CarbonLensMetricsFunctionUrl.FunctionUrl
+  MetricsEndpoint:
+    Description: Direct endpoint path for metrics
+    Value: !Sub '${CarbonLensMetricsFunctionUrl.FunctionUrl}api/aws/ec2/metrics'

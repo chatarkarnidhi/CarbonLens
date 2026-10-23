@@ -29,6 +29,7 @@ import CarbonSummary from "./CarbonSummary";
 import CarbonScore from "./CarbonScore";
 import ReportExport from "./ReportExport";
 import OptimizationConfidence from "./OptimizationConfidence";
+import LiveAwsInfrastructure from "./LiveAwsInfrastructure";
 
 const STORAGE_KEY = "carbonlens_decision_history";
 
@@ -918,6 +919,10 @@ function App() {
             </div>
           </section>
         )}
+
+
+        {/* LIVE AWS INFRASTRUCTURE */}
+        <LiveAwsInfrastructure />
 
 
         {/* METRICS */}
