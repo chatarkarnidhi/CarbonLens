@@ -95,13 +95,17 @@ export async function fetchEc2CpuMetrics(options = {}) {
     }
 
     return {
-      instanceId: data.instanceId || "i-03ab13867b4511011",
-      instanceName: data.instanceName || "CarbonLens-Test-Workload",
+      instanceId: data.instanceId || options.instanceId || "i-03ab13867b4511011",
+      instanceName:
+        options.instanceName ||
+        (data.instanceId === "i-015a45d810c5c5104" || options.instanceId === "i-015a45d810c5c5104"
+          ? "CarbonLens-Frankfurt-Test"
+          : data.instanceName || "CarbonLens-Test-Workload"),
       instanceType: data.instanceType || "t3.micro",
-      region: data.region || "eu-north-1",
+      region: data.region || options.region || "eu-north-1",
       metricName: data.metricName || "CPUUtilization",
       unit: data.unit || "Percent",
-      periodSeconds: data.periodSeconds || 300,
+      periodSeconds: data.periodSeconds || options.period || 300,
       windowHours: data.windowHours || options.hours || 2,
       latestValue:
         typeof data.latestValue === "number" ? data.latestValue : null,
