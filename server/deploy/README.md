@@ -60,10 +60,8 @@ The backend execution role requires **only read-only** access to CloudWatch metr
 4. Under **Advanced settings**:
    - Enable **Function URL**.
    - Auth type: `NONE`.
-   - Check **Configure cross-origin resource sharing (CORS)**:
-     - Allow origins: `*` (or your Amplify domain `https://main.d...amplifyapp.com`).
-     - Allow methods: `GET, OPTIONS`.
-     - Allow headers: `Content-Type, Authorization`.
+   - **CRITICAL**: Leave **"Configure cross-origin resource sharing (CORS)" UNCHECKED**.
+     *(Why: The Lambda handler in `lambda.js` already handles all CORS headers and OPTIONS preflights. If this box is checked in AWS, AWS injects duplicate Access-Control-Allow-Origin headers, causing browser CORS failures).*
 5. Upload the code:
    - Zip the contents of the `server/` directory including `node_modules` (or install dependencies).
    - In **Runtime settings**, set the handler to: `lambda.handler`.

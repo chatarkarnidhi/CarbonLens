@@ -63,16 +63,9 @@ Resources:
           ALLOWED_ORIGIN: !Ref FrontendOrigin
       FunctionUrlConfig:
         AuthType: NONE
-        Cors:
-          AllowOrigins:
-            - !Ref FrontendOrigin
-          AllowMethods:
-            - GET
-            - OPTIONS
-          AllowHeaders:
-            - Content-Type
-            - Authorization
-          MaxAge: 86400
+        # CORS is resolved in one place only: directly within lambda.js handler code
+        # (Access-Control-Allow-Origin, Access-Control-Allow-Methods, OPTIONS preflight)
+        # Leaving FunctionUrlConfig.Cors omitted prevents AWS from injecting duplicate headers.
 
 Outputs:
   MetricsFunctionUrl:

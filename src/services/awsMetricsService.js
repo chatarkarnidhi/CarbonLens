@@ -22,13 +22,8 @@ function resolveEndpointUrl(params = {}) {
 
   const queryString = query.toString() ? `?${query.toString()}` : "";
 
-  // In local development, use Vite proxy (/api) to route server-side to Lambda
-  // This circumvents local browser CORS issues on localhost:5173 / localhost:5174
-  if (import.meta.env.DEV && !import.meta.env.VITE_DIRECT_API) {
-    return `/api/aws/ec2/metrics${queryString}`;
-  }
-
-  // In production, call the actual Lambda Function URL directly
+  // Always call the actual Lambda Function URL directly using the correct route
+  // in both development and production for 100% consistent behavior
   const base = envBase || DEFAULT_LAMBDA_URL;
 
   if (
